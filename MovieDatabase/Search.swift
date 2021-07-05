@@ -17,7 +17,7 @@ struct Search: Decodable {
 
 
 struct Movies: Decodable {
-    var title: String
+    var title: String?
     
     private enum CodingKeys : String, CodingKey {
         case title = "Title"
