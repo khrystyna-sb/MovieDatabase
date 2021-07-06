@@ -48,50 +48,13 @@ extension ViewController: UISearchBarDelegate {
             self.search = movieData
             self.table?.reloadData()
         })
-       
-        
-        
-        
-/*
-        //---------------------------------------------
-        let request = NSMutableURLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
-        
-            request.httpMethod = "GET"
-    
-            let headers = [
-                "x-rapidapi-key": "d8b060c0ecmshbf7bf4ee4577e6ap1c8459jsnd4216fa0e733",
-                "x-rapidapi-host": "movie-database-imdb-alternative.p.rapidapi.com"
-            ]
-        
-            request.allHTTPHeaderFields = headers
-        //--------------------------------------------------
-        
-            let dataTask = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
-                DispatchQueue.main.async {
-                    guard error == nil else { return }
-                        
-                        guard let data = data else {return}
-                        do {
-            //                let json2 = try JSONSerialization.jsonObject(with: data)
-                            let json = try JSONDecoder().decode(Search.self, from: data)
-                            self.search = json
-                            self.table?.reloadData()
-                            print(json)
-                        } catch let error {
-                            print("Failed to decode JSON: \(error.localizedDescription)")
-                        }
-                    }
-            })
-            dataTask.resume()
-        //-------------------------------------------------
- */
-        }
+    }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.search = nil
         self.table?.reloadData()
     }
-    }
+}
 
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {

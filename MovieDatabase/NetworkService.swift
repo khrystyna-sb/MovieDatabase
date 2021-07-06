@@ -9,10 +9,8 @@ import Foundation
 
 protocol NetworkServiceProtocol {
     
- //   func request(request: NSMutableURLRequest, headers: [String : String])
     
     func request(url: URL) -> NSMutableURLRequest
-    //func dataTask(request: URLRequest) -> Search?
     func dataTask(request: URLRequest, movieData: @escaping (Search?) -> Void)
     
 }
@@ -46,8 +44,6 @@ class NetworkService: NetworkServiceProtocol {
                 //                let json2 = try JSONSerialization.jsonObject(with: data)
                                 let json = try JSONDecoder().decode(Search.self, from: data)
                                 movieData(json)
-        //                        self.search = json
-        //                        self.table?.reloadData()
                                 print(json)
                             } catch let error {
                                 print("Failed to decode JSON: \(error.localizedDescription)")
@@ -56,36 +52,4 @@ class NetworkService: NetworkServiceProtocol {
                         }
                 }).resume()
     }
-    
-
-    
-
-    
-   
-    
-    
-    
-//    func dataTask(request: URLRequest) -> Search? {
-//
-//        var json: Search?
-//        URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
-//            DispatchQueue.main.async {
-//                guard error == nil else { return }
-//
-//                    guard let data = data else {return}
-//                    do {
-//        //                let json2 = try JSONSerialization.jsonObject(with: data)
-//                        json = try JSONDecoder().decode(Search.self, from: data)
-//
-////                        self.search = json
-////                        self.table?.reloadData()
-//                        print(json)
-//                    } catch let error {
-//                        print("Failed to decode JSON: \(error.localizedDescription)")
-//                    }
-//                }
-//        }).resume()
-//
-//        return json
-//    }
 }
