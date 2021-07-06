@@ -17,9 +17,16 @@ struct Search: Decodable {
 
 
 struct Movies: Decodable {
+    var poster: String?
     var title: String?
+    var type: String?
+    var year: String?
+    var imdbID: String?
     
     private enum CodingKeys : String, CodingKey {
+        case poster = "Poster"
         case title = "Title"
+        case type = "Type"
+        case year = "Year"
     }
 }
