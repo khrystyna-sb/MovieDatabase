@@ -69,7 +69,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("did taped")
         guard  let table = table else { preconditionFailure("can't find table")}
@@ -82,9 +81,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         networkService.getImage(poster: movieData?.poster, complition: { image in
             movieInfoVC.moviePoster = image
         })
-        
         navigationController?.pushViewController(movieInfoVC, animated: true)
-        
     }
     
 }

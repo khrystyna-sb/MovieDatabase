@@ -10,10 +10,9 @@ import UIKit
 
 protocol NetworkServiceProtocol {
     
-    
     func request(url: URL) -> NSMutableURLRequest
     func dataTask(request: URLRequest, movieData: @escaping (Search?) -> Void)
-    
+    func getImage(poster: String?, complition: @escaping (UIImage?) -> Void)
 }
 
 class NetworkService: NetworkServiceProtocol {
@@ -23,7 +22,7 @@ class NetworkService: NetworkServiceProtocol {
         let request = NSMutableURLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
         
             request.httpMethod = "GET"
-    
+     
             let headers = [
                 "x-rapidapi-key": "d8b060c0ecmshbf7bf4ee4577e6ap1c8459jsnd4216fa0e733",
                 "x-rapidapi-host": "movie-database-imdb-alternative.p.rapidapi.com"
@@ -56,12 +55,14 @@ class NetworkService: NetworkServiceProtocol {
     
     func getImage(poster: String?, complition: @escaping (UIImage?) -> Void) {
         if let poster = poster {
-            let imageURL: URL = URL(string: poster)!
-            let queue = DispatchQueue.global(qos: .utility)
-            queue.async {
-                if let data = try? Data(contentsOf: imageURL) {
-                    DispatchQueue.main.async {
-                      complition(UIImage(data: data))
+            let imageURL = URL(string: poster)
+            if let imageURL = imageURL {
+                let queue = DispatchQueue.global(qos: .utility)
+                queue.async {
+                    if let data = try? Data(contentsOf: imageURL) {
+                        DispatchQueue.main.async {
+                          complition(UIImage(data: data))
+                        }
                     }
                 }
             }
