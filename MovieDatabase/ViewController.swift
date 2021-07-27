@@ -9,7 +9,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    
     @IBOutlet weak var table: UITableView?
     let networkService = NetworkService()
     let searchController = UISearchController(searchResultsController: nil)
@@ -70,7 +69,21 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("did taped")
+        guard  let table = table else { preconditionFailure("can't find table")}
+        table.deselectRow(at: indexPath, animated: true)
+        guard let movieInfoVC = (storyboard?.instantiateViewController(withIdentifier: "MovieInfoViewController")) as? MovieInfoViewController else {return}
+        let movieData = search?.search[indexPath.row]
+        movieInfoVC.movieTitle = movieData?.title
+        movieInfoVC.movieType = movieData?.type
+        movieInfoVC.movieYear = movieData?.year
+        networkService.getImage(poster: movieData?.poster, complition: { image in
+            movieInfoVC.moviePoster = image
+        })
+        
+        navigationController?.pushViewController(movieInfoVC, animated: true)
         
     }
     

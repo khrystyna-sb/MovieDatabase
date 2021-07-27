@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol NetworkServiceProtocol {
     
@@ -52,4 +53,19 @@ class NetworkService: NetworkServiceProtocol {
                         }
                 }).resume()
     }
+    
+    func getImage(poster: String?, complition: @escaping (UIImage?) -> Void) {
+        if let poster = poster {
+            let imageURL: URL = URL(string: poster)!
+            let queue = DispatchQueue.global(qos: .utility)
+            queue.async {
+                if let data = try? Data(contentsOf: imageURL) {
+                    DispatchQueue.main.async {
+                      complition(UIImage(data: data))
+                    }
+                }
+            }
+        }
+    }
 }
+

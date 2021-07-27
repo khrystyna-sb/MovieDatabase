@@ -15,6 +15,7 @@
 		C556D3E8268C9BD800644DFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C556D3E6268C9BD800644DFE /* LaunchScreen.storyboard */; };
 		C556D3F4268DFB1600644DFE /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = C556D3F3268DFB1600644DFE /* Search.swift */; };
 		C556D42A2693240900644DFE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C556D4292693240900644DFE /* NetworkService.swift */; };
+		C556D4F526A82F4C00644DFE /* MovieInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C556D4F426A82F4C00644DFE /* MovieInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		C556D3E9268C9BD800644DFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C556D3F3268DFB1600644DFE /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		C556D4292693240900644DFE /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		C556D4F426A82F4C00644DFE /* MovieInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				C556D3E9268C9BD800644DFE /* Info.plist */,
 				C556D3F3268DFB1600644DFE /* Search.swift */,
 				C556D4292693240900644DFE /* NetworkService.swift */,
+				C556D4F426A82F4C00644DFE /* MovieInfoViewController.swift */,
 			);
 			path = MovieDatabase;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 				C556D3F4268DFB1600644DFE /* Search.swift in Sources */,
 				C556D3DC268C9BD500644DFE /* AppDelegate.swift in Sources */,
 				C556D3DE268C9BD500644DFE /* SceneDelegate.swift in Sources */,
+				C556D4F526A82F4C00644DFE /* MovieInfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
