@@ -41,7 +41,6 @@ class NetworkService: NetworkServiceProtocol {
         
                             guard let data = data else {return}
                             do {
-                      //          let json2 = try JSONSerialization.jsonObject(with: data)
                                 let json = try JSONDecoder().decode(Search.self, from: data)
                                 movieData(json)
                                 print(json)
